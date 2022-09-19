@@ -2,8 +2,11 @@ package entities;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Vertice {
+
+    Scanner sc = new Scanner(System.in);
 
     public int Rotulo;
     public List<Aresta> Arestas;
@@ -15,6 +18,7 @@ public class Vertice {
 
     public Vertice (int v){
         Rotulo = v;
+        Arestas = new ArrayList<>();
     }
 
     public void addAresta(Aresta a){
@@ -33,9 +37,7 @@ public class Vertice {
 
     @Override
     public String toString() {
-        return "Vertice{" +
-                "Rotulo=" + Rotulo +
-                ", Arestas=" + Arestas +
-                '}';
+        return "Rotulo=" + Rotulo +
+                " --- Arestas=" + Arestas;
     }
 }

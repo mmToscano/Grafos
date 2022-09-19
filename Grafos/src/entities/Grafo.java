@@ -49,6 +49,34 @@ public class Grafo {
     }
 
     public void imprimirVertices(){
-        System.out.println(Vertices);
+        for(Vertice item: Vertices){
+            System.out.println("Rótulo: " + item.Rotulo);
+        }
     }
+
+    public void imprimirArestas(int rotulo){
+        Vertice verticeAux = null;
+
+        for(Vertice item: Vertices){
+            if(item.Rotulo == rotulo){
+                verticeAux = item;
+                break;
+            }
+        }
+
+        if(verticeAux != null){
+            System.out.println(verticeAux.imprimirArestas());
+        }else{
+            System.out.println("Vértice inexistente");
+        }
+    }
+
+    public void imprimirGrafo(){
+        int count = 0;
+        for(Vertice item: Vertices){
+            System.out.println("Vértice " + count + ": " + item + "\n");
+            count++;
+        }
+    }
+
 }

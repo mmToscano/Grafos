@@ -1,6 +1,10 @@
 package entities;
 
+import java.util.Scanner;
+
 public class Aresta {
+
+    Scanner sc = new Scanner(System.in);
 
     public Vertice Origem;
     public Vertice Destino;
@@ -24,9 +28,9 @@ public class Aresta {
 
     @Override
     public String toString() {
-        return "Aresta{" +
-                "Origem=" + Origem +
-                ", Destino=" + Destino +
+        return "{" +
+                "Vértice Origem=" + Origem.Rotulo +
+                " -> Vértice Destino=" + Destino.Rotulo +
                 '}';
     }
 }
