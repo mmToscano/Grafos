@@ -19,8 +19,6 @@ public class Aresta {
         Destino = destino;
     }
 
-    //dá para criar um método que cria as origens e os destinos ao contrário.
-
     public void add(Vertice origem, Vertice destino){
         Origem = origem;
         Destino = destino;

@@ -1,12 +1,7 @@
 package Application;
 
-import entities.Aresta;
 import entities.Grafo;
-import entities.Pessoa;
-import entities.Vertice;
 
-import java.util.ArrayList;
-import java.util.List;
 
 public class Program {
 
@@ -19,15 +14,28 @@ public class Program {
         g.addVertice(4);
         g.addVertice(5);
         g.addVertice(9);
-
+        g.addVertice(7);
+        g.addVertice(6);
+        g.addVertice(11);
 
         g.addAresta(2, 3);
         g.addAresta(2, 4);
         g.addAresta(2, 5);
-        //g.imprimirGrafo();
-        //g.imprimirVertices();
-        g.imprimirArestas(3);
+        g.addAresta(9, 3);
+        g.addAresta(7,4);
+        g.addAresta(7, 11);
 
+        System.out.println(g.existeCaminho(2, 11));
+
+
+
+
+
+
+
+
+        //g.imprimirVertices(); //imprime o rótulo dos vértices
+        //g.imprimirArestas(3); //imprime as arestas do vértice informado
 
     }
 }

@@ -41,11 +41,32 @@ public class Grafo {
             destinoAux.addAresta(origemAux);
 
         }
-
-
         //para adicionar uma aresta, é preciso passar o rótulo dos vértices. Precisa passar pela lista verificando quais valores estão dentro dos vértices.
+    }
 
+    public Vertice buscarVertice(int rotulo){
+        Vertice retorno = null;
 
+        for(Vertice item: Vertices){
+            if(item.Rotulo == rotulo){
+                retorno = item;
+            }
+        }
+
+        return retorno;
+    }
+
+    public int converterVerticeParaInt(Vertice vertice){
+
+        int retorno = 0;
+
+        for(Vertice item: Vertices){
+            if(item.Rotulo == vertice.Rotulo){
+                retorno = item.Rotulo;
+            }
+        }
+
+        return retorno;
     }
 
     public void imprimirVertices(){
@@ -70,6 +91,52 @@ public class Grafo {
             System.out.println("Vértice inexistente");
         }
     }
+
+    public void EhAdjacente(int origem, int destino){
+        Vertice o = buscarVertice(origem);
+        Vertice d = buscarVertice(destino);
+        boolean retorno = false;
+
+        for(Aresta item: o.Arestas){
+            if(item.Origem == o && item.Destino == d){
+                retorno = true;
+            }
+        }
+
+        if(retorno){
+            System.out.println("São adjacentes!!!");
+        }else{
+            System.out.println("Não são adjacentes");
+        }
+    }
+
+
+
+
+
+    /*
+    public boolean existeCaminho(int origem, int destino){
+        Vertice o = buscarVertice(origem);
+        Vertice d = buscarVertice(destino);
+
+        boolean retorno = false;
+
+        for(Aresta item: o.Arestas){
+            if(item.Origem == o && item.Destino == d){
+                retorno = true; //encontrou o caminho
+            }else{
+                for(Aresta item2: item.Destino.Arestas){
+                    if(item.Origem == o && item2.Destino ==d){
+                        retorno = true;
+                    }else{
+
+                    }
+                }
+            }
+        }
+        return retorno;
+    }
+    */
 
     public void imprimirGrafo(){
         int count = 0;
