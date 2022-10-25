@@ -40,4 +40,37 @@ public class Vertice {
         return "Rotulo=" + Rotulo +
                 " --- Arestas=" + Arestas;
     }
+
+    public boolean EhAdjacente(Vertice destino){
+
+        boolean retorno = false;
+
+        for(Aresta item: Arestas){
+            if(item.Destino.Rotulo == destino.Rotulo){
+                retorno = true;
+            }
+        }
+
+        return retorno;
+    }
+
+    public boolean existeCaminho(Vertice destino){
+
+        boolean retorno = false;
+
+            if(this.EhAdjacente(destino)){
+                retorno = true;
+            }else{
+                for (Aresta item : Arestas) {
+                   if(item.Destino.existeCaminho(destino)){
+                       retorno = true;
+                        break;
+                }
+            }
+
+        }
+
+        return retorno;
+
+    }
 }

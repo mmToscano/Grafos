@@ -38,7 +38,7 @@ public class Grafo {
         if(destinoAux != null && origemAux != null) {
 
             origemAux.addAresta(destinoAux);
-            destinoAux.addAresta(origemAux);
+            //destinoAux.addAresta(origemAux);
 
         }
         //para adicionar uma aresta, é preciso passar o rótulo dos vértices. Precisa passar pela lista verificando quais valores estão dentro dos vértices.
@@ -92,25 +92,42 @@ public class Grafo {
         }
     }
 
-    public void EhAdjacente(int origem, int destino){
+    /*
+    public boolean EhAdjacente(int origem, int destino){
         Vertice o = buscarVertice(origem);
         Vertice d = buscarVertice(destino);
         boolean retorno = false;
 
-        for(Aresta item: o.Arestas){
-            if(item.Origem == o && item.Destino == d){
-                retorno = true;
-            }
+        if(o != null && d!= null) {
+            retorno = o.EhAdjacente(d);
         }
 
-        if(retorno){
-            System.out.println("São adjacentes!!!");
-        }else{
-            System.out.println("Não são adjacentes");
-        }
+        return retorno;
     }
+     */
 
+    //Vou procurar um értice que corresponda com o destino passado e ver todas as arestas que saem dele. Depois é ver se
+    //tem caminho
+    public boolean existeCaminho(int origem, int destino){
+        Vertice o = buscarVertice(origem);
+        Vertice d = buscarVertice(destino);
+        boolean retorno = false;
 
+        if(o != null && d!= null) {
+            if(o.EhAdjacente(d)){
+                retorno = true;
+            }else{
+                for (Aresta item : o.Arestas) {
+                    retorno = item.Destino.existeCaminho(d);
+
+                }
+            }
+
+        }
+
+        return retorno;
+
+    }
 
 
 
