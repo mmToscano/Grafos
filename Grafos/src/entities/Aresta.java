@@ -8,15 +8,17 @@ public class Aresta {
 
     public Vertice Origem;
     public Vertice Destino;
+    public int Distancia;
 
 
     public Aresta(){
 
     }
 
-    public Aresta(Vertice origem, Vertice destino){
+    public Aresta(Vertice origem, Vertice destino, int distancia){
         Origem = origem;
         Destino = destino;
+        Distancia = distancia;
     }
 
     public void add(Vertice origem, Vertice destino){
@@ -29,6 +31,6 @@ public class Aresta {
         return "{" +
                 "Vértice Origem=" + Origem.Rotulo +
                 " -> Vértice Destino=" + Destino.Rotulo +
-                '}';
+                "| Distância = " + Distancia + "}";
     }
 }

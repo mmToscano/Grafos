@@ -25,8 +25,8 @@ public class Vertice {
         Arestas.add(a);
     }
 
-    public void addAresta(Vertice destino){
-        Arestas.add(new Aresta(this, destino));
+    public void addAresta(Vertice destino, int distancia){
+        Arestas.add(new Aresta(this, destino, distancia));
         //new Aresta(this, destino);
     }
 

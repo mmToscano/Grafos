@@ -20,7 +20,7 @@ public class Grafo {
         Vertices.add(v);
     }
 
-    public void addAresta(int origem, int destino){
+    public void addAresta(int origem, int destino, int distancia){
         Vertice origemAux = null;
         Vertice destinoAux = null;
 
@@ -37,7 +37,7 @@ public class Grafo {
 
         if(destinoAux != null && origemAux != null) {
 
-            origemAux.addAresta(destinoAux);
+            origemAux.addAresta(destinoAux, distancia);
             //destinoAux.addAresta(origemAux);
 
         }
@@ -92,20 +92,6 @@ public class Grafo {
         }
     }
 
-    /*
-    public boolean EhAdjacente(int origem, int destino){
-        Vertice o = buscarVertice(origem);
-        Vertice d = buscarVertice(destino);
-        boolean retorno = false;
-
-        if(o != null && d!= null) {
-            retorno = o.EhAdjacente(d);
-        }
-
-        return retorno;
-    }
-     */
-
     //Vou procurar um értice que corresponda com o destino passado e ver todas as arestas que saem dele. Depois é ver se
     //tem caminho
     public boolean existeCaminho(int origem, int destino){
@@ -129,32 +115,6 @@ public class Grafo {
 
     }
 
-
-
-    /*
-    public boolean existeCaminho(int origem, int destino){
-        Vertice o = buscarVertice(origem);
-        Vertice d = buscarVertice(destino);
-
-        boolean retorno = false;
-
-        for(Aresta item: o.Arestas){
-            if(item.Origem == o && item.Destino == d){
-                retorno = true; //encontrou o caminho
-            }else{
-                for(Aresta item2: item.Destino.Arestas){
-                    if(item.Origem == o && item2.Destino ==d){
-                        retorno = true;
-                    }else{
-
-                    }
-                }
-            }
-        }
-        return retorno;
-    }
-    */
-
     public void imprimirGrafo(){
         int count = 0;
         for(Vertice item: Vertices){
@@ -162,5 +122,21 @@ public class Grafo {
             count++;
         }
     }
+
+
+
+    /*
+    public boolean EhAdjacente(int origem, int destino){
+        Vertice o = buscarVertice(origem);
+        Vertice d = buscarVertice(destino);
+        boolean retorno = false;
+
+        if(o != null && d!= null) {
+            retorno = o.EhAdjacente(d);
+        }
+
+        return retorno;
+    }
+     */
 
 }
